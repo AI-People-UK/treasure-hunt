@@ -7,8 +7,8 @@ The core philosophy is separating the creative narrative (handled by the LLM) fr
 
 ```mermaid
 flowchart TD
-    Player([Player]) -- "Natural Language Chat\n('Go to the kitchen')" --> Gamemaster[Gemini ADK Agent\n(The Gamemaster)]
-    Gamemaster -- "Creative Narration\n('You walk into the sterile kitchen...')" --> Player
+    Player([Player]) -- "Natural Language Chat<br/>('Go to the kitchen')" --> Gamemaster[Gemini ADK Agent<br/>(The Gamemaster)]
+    Gamemaster -- "Creative Narration<br/>('You walk into the sterile kitchen...')" --> Player
     
     subgraph ADK Framework
         Gamemaster
@@ -18,13 +18,13 @@ flowchart TD
     Gamemaster -- "Decides to use a tool" --> Bridge
     Bridge -- "Returns raw tool data" --> Gamemaster
     
-    Bridge <-->|"JSON-RPC protocol"\nSecure background connection| Server
+    Bridge <-->|"JSON-RPC protocol"<br/>Secure background connection| Server
     
     subgraph game_server.py (The Game Engine)
         Server[FastMCP Server]
         
-        State[(Secure Game State\n- Inventory\n- Current Location)]
-        Logic[{Strict Python Logic\n- Does player have key?}]
+        State[(Secure Game State<br/>- Inventory<br/>- Current Location)]
+        Logic[{Strict Python Logic<br/>- Does player have key?}]
         
         Server <--> State
         Server <--> Logic
